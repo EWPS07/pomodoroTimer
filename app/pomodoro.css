@@ -1,0 +1,182 @@
+/****************** HTML *****************/
+
+nav,
+#containAll {
+  font-family: 'Telex', sans-serif;
+}
+
+body {
+  /*   padding-top: 5%; */
+  background-color: #4EB1BA;
+}
+
+h3 {
+  color: #4EB1BA;
+}
+
+
+/**************** CLASSES ****************/
+
+.subs {
+  font-size: 25%;
+}
+
+.info {
+  background-color: #E9E9E9;
+  color: #222930;
+}
+
+.contact {
+  margin-bottom: 5%;
+}
+
+.btn-group button.btn.btn-default:hover,
+button.btn.btn-default:hover {
+  color: #4EB1BA;
+}
+
+
+/***************** ID'S ******************/
+
+#containAll {
+  padding-top: 0%;
+  margin-right: 12%;
+  margin-left: 12%;
+}
+
+#timeCount {
+  font-size: 600%;
+  color: #E9E9E9;
+  text-shadow: 1px 1px 2px #222930;
+}
+
+#aboutPom,
+#contact,
+#browserDisclaimer,
+#landingPage {
+  margin-top: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+#warning {
+  color: red;
+}
+
+#hours {
+  font-size: 100%;
+}
+
+#mins {
+  font-size: 75%;
+}
+
+#secs {
+  font-size: 50%;
+}
+
+#clockWidget {
+  background-color: #222930;
+  margin-top: 1%;
+  border: solid 1px #E9E9E9;
+  border-radius: 10px;
+  padding-top: 0%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+#plus {
+  color: green;
+}
+
+#minus {
+  color: red;
+}
+
+#appNav {
+  margin-top: none;
+  margin-bottom: 0%;
+  border: none;
+}
+
+#pause {
+  border-radius: 11% 0 0 11%;
+}
+
+#appNav,
+#widgetNav {
+  color: #4EB1BA;
+  background-color: #222930;
+}
+
+#widgetNav {
+  margin-right: none;
+  border: none;
+}
+
+#mainBrand,
+#clockWidgetBrand,
+nav.navbar.navbar-default#appNav li a,
+nav.navbar.navbar-default#widgetNav li a {
+  color: #E9E9E9;
+}
+
+#mainBrand:hover,
+#clockWidgetBrand:hover,
+nav.navbar.navbar-default#appNav li a:hover,
+nav.navbar.navbar-default#widgetNav li a:hover {
+  color: #4EB1BA;
+}
+
+#begin {
+  margin-top: 5%;
+}
+
+
+/*************** BOOTSTRAP ***************/
+
+.btn-group button.btn.btn-default,
+button.btn.btn-default,
+nav.container-fluid.navbar-default.navbar-fixed-bottom,
+#aboutPom,
+#landingPage,
+#browserDisclaimer,
+#contact {
+  color: #E9E9E9;
+  background-color: #222930;
+}
+
+nav.container-fluid.navbar-default.navbar-fixed-bottom {
+  padding-top: 2%;
+}
+
+
+/*------------ Media querey -------------*/
+
+@media only screen and (min-width: 240px) and (max-width: 683px) and (min-resolution: 1dppx) {
+  #containAll,
+  body {
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+  body {
+    background-color: #222930;
+  }
+  #clockWidget {
+    padding-top: 2%;
+    border: solid 1px #E9E9E9;
+    background-color: #222930;
+  }
+  #timeCount {
+    font-size: 800%;
+  }
+  /*   #foot {
+    display: none; 
+} */
+  #clockWidgetBrand,
+  #mainBrand {
+    color: #4EB1BA;
+  }
+}

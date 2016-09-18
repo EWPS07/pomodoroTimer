@@ -1,0 +1,139 @@
+
+<html>
+  <head>
+    <title>Pomodoro</title>
+    <meta name="viewport" content="width=device-width" inital-scale="1"/>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <link href="https://fonts.googleapis.com/css?family=Telex" rel="stylesheet"/>
+    <link href="pomodoro.css" type='text/css' rel='stylesheet'/>
+  </head>
+  <nav id="appNav" class="navbar navbar-default navbar-static-top">
+    <!-- Brand and toggle get grouped for better mobile display-->
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>        <span class="icon-bar"></span>        <span class="icon-bar"></span>        <span class="icon-bar"></span></button> <a id="mainBrand" href="#" class="navbar-brand">Pomodoro</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling-->
+    <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+      <ul id="mainPills" class="nav navbar-nav nav-pills">
+        <li><a id="pomTimer" href="#clockWidget" data-toggle="collapse" data-target=".navbar-collapse.in">Timer</a></li>
+        <li><a id="appAbout" href="#aboutPom" data-toggle="collapse" data-target=".navbar-collapse.in">About </a></li>
+        <li><a id="contactInfo" href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in">Contact </a></li>
+      </ul> 
+    </div>
+  </nav>
+  <body>
+    <div id="containAll" class="container-fluid">
+      <div id="browserDisclaimer" class="jumbotron">
+        <div class="well info">
+          <div class="row-fluid text-center">
+            <h3 id="warning">WARNING</h3>
+          </div>
+          <div class="row-fluid text-center">
+            <p>Just for the record, I'm still working out some bugs for the desktop version of <strong>Safari</strong>(mobile is fine). Currently while using it, the audio notifications will not be available. I recommend using a different browser until I get this worked out. If you would like to recieve alert boxes instead, just check the box below. Sorry for the inconvenience.</p>
+          </div>
+          <div class="row-fluid text-center checkbox">
+            <label>
+              <input id="alertCheck" type="checkbox"/> <strong>Use alerts</strong>
+            </label>
+          </div>
+          <div class="row-fluid text-right">
+            <button id="exitBrowserDis" class="btn btn-danger glyphicon glyphicon-remove"></button>
+          </div>
+        </div>
+      </div>
+      <div id="landingPage" class="jumbotron">
+        <div class="row-fluid text-center">
+          <h3>Welcome!</h3>
+          <div class="well info">
+            <p>Here we have a useful tool to help you get the most out of your day. In the navigation bar at the top of your screen, you'll find the timer tab. When you're ready, click on it to open the timer widget so that you can get started using the Pomodoro technique! If you're not sure what the Pomodoro technique is, or would like to learn more about it, the about tab will help you out!</p>
+          </div>
+        </div>
+      </div>
+      <div id="clockWidget" class="jumbotron">
+        <nav id="widgetNav" class="row-fluid navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display-->
+            <div class="navbar-header">
+              <button type="button" data-toggle="collapse" data-target="#clockWidget-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>        <span class="icon-bar"></span>        <span class="icon-bar"></span>        <span class="icon-bar"></span></button> <a id="clockWidgetBrand" href="#" class="navbar-brand">Pomodoro times</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling-->
+            <div id="clockWidget-example-navbar-collapse-1" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav nav-pills"><span class="sr-only">(current)</span> 
+                <li><a id="original" href="#" data-toggle="collapse" data-target=".navbar-collapse.in" class="poms">25<strong>/</strong>5<strong>/</strong>10</a></li> 
+                <li><a id="double" href="#" data-toggle="collapse" data-target=".navbar-collapse.in" class="poms">50<strong>/</strong>10<strong>/</strong>20</a></li> 
+                <li><a id="fiveTwoOneSeven" href="#" data-toggle="collapse" data-target=".navbar-collapse.in" class="poms">52<strong>/</strong>17</a></li> 
+                <li><a id="custom" href="#" data-toggle="collapse" data-target=".navbar-collapse.in" class="poms">Custom</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div id="workBreak" class="row-fluid text-center">
+          <div class="btn-group">
+            <button id="work" class="btn btn-default times">work time</button> 
+            <button id="sBreak" class="btn btn-default times">short break</button> 
+            <button id="lBreak" class="btn btn-default times">long break</button>
+          </div>
+        </div>
+        <div id="customIns" class="row-fluid well info">
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <p class="text-center">For your custom rounds, use the <strong id='plus'>+</strong> and <strong id='minus'>-</strong> buttons to adjust to your preferred times for your work and break rounds.</p>
+            </div>
+            <div class="row-fluid text-right">
+              <button id="exitIns" class="btn btn-danger glyphicon glyphicon-remove"></button>
+            </div>
+          </div>
+        </div>
+        <div id="plusMinus" class="row-fluid text-center"> 
+          <div class="btn-group">
+            <button id="minusTime" class="btn btn-default glyphicon glyphicon-minus plusMinus"></button>
+            <button id="addTime" class="btn btn-default glyphicon glyphicon-plus plusMinus"></button>
+          </div>
+        </div>
+        <div id="timeCount" class="row-fluid text-center"><span id="hours"></span><span id="mins"></span><span id="secs"></span></div> 
+        <div class="row-fluid text-center">
+          <button id="begin" class="btn btn-default">Begin</button> 
+        </div>
+        <div id="startPause" class="row-fluid text-center">
+          <div class="btn-group">
+            <button id="start" class="btn btn-default glyphicon glyphicon-play"></button> 
+            <button id="pause" class="btn btn-default glyphicon glyphicon-pause"></button> 
+            <button id="reset" class="btn btn-default glyphicon glyphicon-refresh"></button>
+          </div>
+        </div>
+      </div>
+      <div id="aboutPom" class="jumbotron">
+        <div class="row-fluid text-center">
+          <h3>About the technique</h3>
+          <div class="well info">
+            <p>For so many people, including myself, keeping focused on tasks for extended periods of time can prove to be quite difficult. Life offers up so many distractions throughout the day, from phone calls to emails, to social media. Everything has it's time and place, but keeping everything in order and in it's proper time slot can be an uphill battle.</p><br/>
+            <p>Many people have found that the Pomodoro Technique can be incredibly useful to help them stay focused. Many people have less difficulty while focusing on tasks for short bursts, with quick breaks in between to break up the monotony, and that's where the Pomodoro Technique comes in.</p><br/>
+            <p>The original Pomodoro is 4 rounds. The first 3 rounds each consist of a 25 minute work slot, and a 5 minute break. After the fourth work slot, a 10 minute break is given. In total, one full pomodoro round is 100 minutes of work, and 25 minutes for breaks(email, phone calls, social media, grab a coffee, or whatever you like).</p><br/>
+            <p>Studies have shown that using the Pomodoro Technique or other methods similar to it, can drastically improve the amount of work one completes. The original time restraints aren't for everyone. Some people needs a break every half hour, so I've included a 50/10/20 option, the 52/17 method (not a pomodoro, but another method to boost productivity), and the ability to customize your work and break times so that you can find out what works best for you. Good luck!</p>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="jumbotron">   
+        <div class="row-fluid text-center contact">
+          <h3>Contact Info</h3>
+          <div class="well info">
+            <div class="row-fluid text-center contact">   <a href="https://github.com/EWPS07" target="_blank"><img src="http://www.aha.io/assets/integration_logos/github-bb449e0ffbacbcb7f9c703db85b1cf0b.png" target="_blank" height="100px"/></a></div>
+            <div class="row-fluid text-center contact">    <a href="http://codepen.io/EWPS07/" target="_blank"><img src="http://bendtech.com/wp-content/uploads/Logo.png" height="100px"/></a></div>
+            <div class="row-fluid text-center contact">    <a href="https://www.linkedin.com/in/evan-paige-063b9496?trk=hp-identity-name" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1280px-LinkedIn_Logo.svg.png" height="65px"/></a></div>
+            <div class="row-fluid text-center contact">    
+              <p>or send me an email at ewpaige@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav id="foot" class="container-fluid navbar-default navbar-fixed-bottom">
+        <p class="text-center">An application for productivity by <a href="http://codepen.io/EWPS07/" target="_blank">Evan Paige</a></p>
+      </nav>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='pomodoro.js' type='text/javascript'></script>
+  </body>
+</html>
